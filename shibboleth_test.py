@@ -21,9 +21,11 @@ def geturl(url, Flag=False):
                 return m.group(1).strip()
 
 
-idp1 = geturl("https://your_service_provider.com/secure", True)
+idp1 = geturl("https://sptest.cybera.ca/test", True)
 idp2 = geturl(idp1)
-out = cmdline("curl -s -kv -d \"j_username=test1&j_password=qwe123&_eventId_proceed=submit\" \"%s\" 2>&1" % idp2)
+out = cmdline("curl -s -kv -d \"j_username=test10&j_password=qwe123&_eventId_proceed=submit\" \"%s\" 2>&1" % idp2)
+
+print out
 
 if out.find("SAMLResponse"):
         print "Success"
